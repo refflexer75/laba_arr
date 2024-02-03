@@ -3,6 +3,12 @@ using namespace std;
 const int numberOfStrings = 4;
 const int numberOfCols = 3;
 
+void myswap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
 
 void selectionSort(int (*arr)[numberOfStrings][numberOfCols], int n)
 {
@@ -17,8 +23,7 @@ void selectionSort(int (*arr)[numberOfStrings][numberOfCols], int n)
                 min_idx = j;
         }
         if (min_idx != i) {
-            cout << "now swapping string № " << (*arr)[min_idx][0] << " and " << (*arr)[i][0] << "\n";
-            for(int el = 0; el < numberOfCols; el++) swap((*arr)[min_idx][el], (*arr)[i][el]);
+            for(int el = 0; el < numberOfCols; el++) myswap(&(*arr)[min_idx][el], &(*arr)[i][el]);
         }
     }
 }
